@@ -51,7 +51,7 @@ public class HistoryScreen extends AppCompatActivity {
         LineGraphSeries<DataPoint> seriesYesterday = new LineGraphSeries<DataPoint>(dataYesterday);
         LineGraphSeries<DataPoint> seriesTwoDaysAgo = new LineGraphSeries<DataPoint>(dataTwoDaysAgo);
         LineGraphSeries<DataPoint> seriesThreeDaysAgo = new LineGraphSeries<DataPoint>(dataThreeDaysAgo);
-        
+
         //coloring
         seriesThreeDaysAgo.setColor(Color.RED);
         seriesTwoDaysAgo.setColor(Color.BLUE);
