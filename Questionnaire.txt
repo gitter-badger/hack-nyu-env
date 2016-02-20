@@ -104,3 +104,10 @@ Products
 	Other : spend ($/month) * 12 * EF (kg CO2e/$) = emissions (kg CO2e/yr)
 
 
+Resources:
+
+http://shrinkthatfootprint.com/calculate-your-carbon-footprint
+http://www.livescience.com/13835-carbon-footprint-daily-activities.html
+https://developer.epa.gov/category/api/page/3/
+
+
