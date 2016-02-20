@@ -1,7 +1,10 @@
 package com.example.helenchang.myfootprintpal;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +24,12 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 
 
 public class Homescreen extends AppCompatActivity {
-    //Colours
+    //add one time welcome screen
+
+    SharedPreferences mPrefs;
+    final String welcomeScreenShownPref = "welcomeScreenShown";
+
+    //Coloring
     final int COL_TODAY = Color.GREEN;
     final int COL_BEST = Color.GRAY;
     final int COL_GOAL = Color.RED;
@@ -36,6 +44,7 @@ public class Homescreen extends AppCompatActivity {
     LineGraphSeries<DataPoint> bestLineGraph;
     LineGraphSeries<DataPoint> goalLineGraph;
     GraphView graph;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //DONT MESS WITH THIS
@@ -43,16 +52,20 @@ public class Homescreen extends AppCompatActivity {
         setContentView(R.layout.activity_homescreen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
-        //GRAPH
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+
+        //Default to false if not found in xml
+        Boolean welcomeScreenShown = mPrefs.getBoolean(welcomeScreenShownPref, false);
+
+        if(!welcomeScreenShown) {
+            //somehow show questionaire
+            Intent intent = new Intent(this, DisplayQuestionnaire.class);
+            //edit prefs
+            mPrefs.edit().putBoolean(welcomeScreenShownPref, true).commit();
+
+        }
+        //GRAPHS
         graph = (GraphView) findViewById(R.id.graph);
         graph.getViewport().setXAxisBoundsManual(true);
         graph.getViewport().setMinX(0);
