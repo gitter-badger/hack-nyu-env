@@ -1,1 +1,53 @@
 This will be our Question Sheet to set an average for a users's day.
+
+What I need to Research :
+
+Waste: 
+
+Bottled Water?
+
+Food:
+
+
+
+Water Consumption:
+
+- Average 
+
+Transportation:
+
+- Bus 
+
+- Car
+
+- Train
+
+- Bike 
+
+- Walk
+
+Equations: 
+
+Electricity : use (kWh/yr) * EF (kg CO2e/kWh) = emissions (kg CO2e/yr)
+
+Natural Gas : use (therms/yr) * EF (kg CO2e/therms) = emissions (kg CO2e/yr)
+
+Fuel Oil: use (litres/yr) * EF (kg CO2e/litre) = emissions (kg CO2e/yr)
+
+LPG : use (litres/yr) * EF (kg CO2e/litre) = emissions (kg CO2e/yr)
+
+Waste : use (kg/week) * 52 * EF (kg CO2e/kg) = emissions (kg CO2e/yr)
+
+Water : use (litres/day) * 365 * EF (kg CO2e/kWh) = emissions (kg CO2e/yr)
+
+Vehicle : distance (km/yr) /*EF (kg CO2e/km) = emissions (kg CO2e/yr)
+
+Bus : distance (km/yr) * EF (kg CO2e/km) = emissions (kg CO2e/yr)
+
+Metro: distance (km/yr) * EF (kg CO2e/km) = emissions (kg CO2e/yr)
+
+Taxi: distance (km/yr) * EF (kg CO2e/km) = emissions (kg CO2e/yr)
+
+Rail: distance (km/yr) * EF (kg CO2e/km) = emissions (kg CO2e/yr)
+
+Flying : distance (km/yr)* 1.09 * EF (kg CO2e/km) = emissions (kg CO2e/yr)
