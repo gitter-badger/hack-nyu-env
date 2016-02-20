@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">MyFootprintPal</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_travel">Travel</string>
+    <string name="title_activity_water">Water</string>
+    <string name="title_activity_food">Food/Diet</string>
+    <string name="title_activity_waste">Waste</string>
 </resources>

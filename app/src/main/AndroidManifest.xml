@@ -18,6 +18,65 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Travel"
+            android:label="@string/title_activity_travel"
+            android:parentActivityName=".Main"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.example.aaronwalker.myfootprintpal.Travel" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.aaronwalker.myfootprintpal.Main" />
+        </activity>
+        <activity
+            android:name=".Water"
+            android:label="@string/title_activity_water"
+            android:parentActivityName=".Main"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.example.aaronwalker.myfootprintpal.Water" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.aaronwalker.myfootprintpal.Main" />
+        </activity>
+        <activity
+            android:name=".Food"
+            android:label="@string/title_activity_food"
+            android:parentActivityName=".Main"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.example.aaronwalker.myfootprintpal.Food" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.aaronwalker.myfootprintpal.Main" />
+        </activity>
+        <activity
+            android:name=".Waste"
+            android:label="@string/title_activity_waste"
+            android:parentActivityName=".Main"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.example.aaronwalker.myfootprintpal.Waste" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.aaronwalker.myfootprintpal.Main" />
+        </activity>
     </application>
 
 </manifest>
