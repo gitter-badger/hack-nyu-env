@@ -1,5 +1,6 @@
 package com.example.aaronwalker.myfootprintpal;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,10 +9,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import java.lang.Math.*;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.LineGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.PointsGraphSeries;
 
 
 public class HistoryScreen extends AppCompatActivity {
@@ -23,19 +26,50 @@ public class HistoryScreen extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        GraphView graph = (GraphView) findViewById(R.id.graph);
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
-            new DataPoint(0, 1),
-            new DataPoint(1, 5),
-        });
+        //datapoint arrays initialized for 24hrs
+        DataPoint[] dataYesterday = new DataPoint[24];
+        DataPoint[] dataTwoDaysAgo = new DataPoint[24];
+        DataPoint[] dataThreeDaysAgo = new DataPoint[24];
+
+        //randomize points SHOULD BE COMING FROM PAST USER DATA!!
+        for(int i = 0; i < 24; i++){
+            double randx = i + 1;
+            double randy = java.lang.Math.random() * 100;
+            dataThreeDaysAgo[i] = new DataPoint(randx, randy);
+            randx = i + 1;
+            randy = java.lang.Math.random() * 100;
+            dataTwoDaysAgo[i] = new DataPoint(randx, randy);
+            randx = i + 1;
+            randy = java.lang.Math.random() * 100;
+            dataYesterday[i] = new DataPoint(randx, randy);
+
+        }
+        //create graph for most recent history (yesterday + 2days ago + 3days ago)
+        GraphView graphPast = (GraphView) findViewById(R.id.graph);
+
+        //series of points
+        LineGraphSeries<DataPoint> seriesYesterday = new LineGraphSeries<DataPoint>(dataYesterday);
+        LineGraphSeries<DataPoint> seriesTwoDaysAgo = new LineGraphSeries<DataPoint>(dataTwoDaysAgo);
+        LineGraphSeries<DataPoint> seriesThreeDaysAgo = new LineGraphSeries<DataPoint>(dataThreeDaysAgo);
+        
+        //coloring
+        seriesThreeDaysAgo.setColor(Color.RED);
+        seriesTwoDaysAgo.setColor(Color.BLUE);
+        seriesYesterday.setColor(Color.GREEN);
+
+        //plot lines
+        graphPast.addSeries(seriesYesterday);
+        graphPast.addSeries(seriesTwoDaysAgo);
+        graphPast.addSeries(seriesThreeDaysAgo);
+
+        //set up scaling/scrolling
+        graphPast.getViewport().setScalable(true);
+        graphPast.getViewport().setScrollable(true);
+
+        //axis
+        graphPast.getGridLabelRenderer().setVerticalAxisTitle("Carbon Footprint (CO2e)");
+        graphPast.getGridLabelRenderer().setHorizontalAxisTitle("Time (h)");
+
     }
 
     @Override
