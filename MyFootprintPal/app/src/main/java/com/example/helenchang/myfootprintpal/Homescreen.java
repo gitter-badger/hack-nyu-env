@@ -21,22 +21,28 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 
 
 public class Homescreen extends AppCompatActivity {
-
+    //Colours
     final int COL_TODAY = Color.GREEN;
     final int COL_BEST = Color.GRAY;
     final int COL_GOAL = Color.RED;
 
+    //DATAPOINTS
     final DataPoint[] EMPTY = new DataPoint[]{new DataPoint(0,0)};
+    DataPoint[] todayDP;
+    DataPoint[] bestDP;
+    DataPoint[] goalDP;
 
-    LineGraphSeries<DataPoint> todayData;
+    LineGraphSeries<DataPoint> todayLineGraph;
+    LineGraphSeries<DataPoint> bestLineGraph;
+    LineGraphSeries<DataPoint> goalLineGraph;
     GraphView graph;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //DONT MESS WITH THIS
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homescreen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,77 +52,88 @@ public class Homescreen extends AppCompatActivity {
             }
         });
 
-        //GRAPHS
+        //GRAPH
         graph = (GraphView) findViewById(R.id.graph);
-
-        //Line 1: Today's data
-        todayData = new LineGraphSeries<DataPoint>(new DataPoint[] {
-                new DataPoint(0, 1),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3),
-                new DataPoint(3, 2),
-                new DataPoint(4, 6)
-        });
-        graph.addSeries(todayData);
+        graph.getViewport().setXAxisBoundsManual(true);
+        graph.getViewport().setMinX(0);
+        graph.getViewport().setMaxX(24);
         graph.setTitle("Today's Progress");
         graph.setTitleTextSize(70);
         graph.getGridLabelRenderer().setVerticalAxisTitle("Carbon Footprint (CO2e)");
         graph.getGridLabelRenderer().setHorizontalAxisTitle("Time (h)");
-        todayData.setColor(COL_TODAY);
 
+        //DATAPOINTS
+        todayDP = new DataPoint[]{
+                new DataPoint(0, 1),
+                new DataPoint(5, 5),
+                new DataPoint(10, 3),
+                new DataPoint(15, 2),
+                new DataPoint(20, 6)
+        };
+        bestDP = new DataPoint[] {
+                new DataPoint(0, 2),
+                new DataPoint(5, 5),
+                new DataPoint(10, 4),
+                new DataPoint(15, 4),
+                new DataPoint(24, 7)
+        };
+        goalDP = new DataPoint[] {
+                new DataPoint(0, 5),
+                new DataPoint(24,5)
+        };
 
+        //Line 1: Today's data
+        todayLineGraph = new LineGraphSeries<DataPoint>(todayDP);
+        graph.addSeries(todayLineGraph);
+        todayLineGraph.setColor(COL_TODAY);
 
         //Line 2: Best data
-        LineGraphSeries<DataPoint> bestData = new LineGraphSeries<DataPoint>(new DataPoint[] {
-                new DataPoint(0, 2),
-                new DataPoint(1, 5),
-                new DataPoint(2, 4),
-                new DataPoint(3, 4),
-                new DataPoint(4, 7)
-        });
-        graph.addSeries(bestData);
-        bestData.setColor(COL_BEST);
-
+        bestLineGraph = new LineGraphSeries<DataPoint>(bestDP);
+        graph.addSeries(bestLineGraph);
+        bestLineGraph.setColor(COL_BEST);
 
         //Line 3: Goal data
-        LineGraphSeries<DataPoint> goalData = new LineGraphSeries<DataPoint>(new DataPoint[] {
-                new DataPoint(0, 5),
-                new DataPoint(1, 5),
-                new DataPoint(2, 5),
-                new DataPoint(3, 5),
-                new DataPoint(4, 5)
-        });
-        graph.addSeries(goalData);
-        goalData.setColor(COL_GOAL);
+        goalLineGraph = new LineGraphSeries<DataPoint>(goalDP);
+        graph.addSeries(goalLineGraph);
+        bestLineGraph.setColor(COL_GOAL);
 
 
         //CHECKBOXES
         CheckBox todayCB = (CheckBox) findViewById(R.id.todayCB);
         CheckBox bestCB = (CheckBox) findViewById(R.id.bestCB);
         CheckBox goalCB = (CheckBox) findViewById(R.id.goalCB);
-
         todayCB.setOnClickListener(new OnClickListener(){
             @Override
             public void onClick(View v){
-
                 if(((CheckBox)v).isChecked()){
-                    todayData.resetData(EMPTY);
-                    graph.addSeries(todayData);
+                    todayLineGraph.resetData(todayDP);
                 }
                 else{
-                    todayData.resetData(new DataPoint[] {
-                            new DataPoint(0, 1),
-                            new DataPoint(1, 5),
-                            new DataPoint(2, 3),
-                            new DataPoint(3, 2),
-                            new DataPoint(4, 6)
-                    });
-
+                    todayLineGraph.resetData(EMPTY);
                 }
             }
-
-
-
+        });
+        bestCB.setOnClickListener(new OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if(((CheckBox)v).isChecked()){
+                    bestLineGraph.resetData(bestDP);
+                }
+                else{
+                    bestLineGraph.resetData(EMPTY);
+                }
+            }
+        });
+        goalCB.setOnClickListener(new OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if(((CheckBox)v).isChecked()){
+                    goalLineGraph.resetData(goalDP);
+                }
+                else{
+                    goalLineGraph.resetData(EMPTY);
+                }
+            }
         });
 
     }
