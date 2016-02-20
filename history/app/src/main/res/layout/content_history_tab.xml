@@ -9,12 +9,11 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.aaronwalker.myfootprintpal.Main"
-    tools:showIn="@layout/activity_main">
+    tools:context="com.example.aaronwalker.myapplication.HistoryTab"
+    tools:showIn="@layout/activity_history_tab">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/textView" />
+        android:text="Hello World!" />
 </RelativeLayout>
