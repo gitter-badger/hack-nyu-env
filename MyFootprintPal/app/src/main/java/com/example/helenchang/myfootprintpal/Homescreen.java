@@ -27,9 +27,9 @@ public class Homescreen extends AppCompatActivity {
     SharedPreferences mPrefs;
     final String welcomeScreenShownPref = "welcomeScreenShown";
 
-    SharedPreferences initialEntries;
-    SharedPreferences.Editor initialEntEditor = initialEntries.edit();
-    final String INITIAL_ENTRY = "initialEntry";
+//    SharedPreferences initialEntries;
+//    SharedPreferences.Editor initialEntEditor = initialEntries.edit();
+//    final String INITIAL_ENTRY = "initialEntry";
 
     //Coloring
     final int COL_TODAY = Color.GREEN;
@@ -59,7 +59,7 @@ public class Homescreen extends AppCompatActivity {
         //force set to first time every time
         mPrefs = getSharedPreferences(welcomeScreenShownPref,0);
 
-        initialEntries = getSharedPreferences(INITIAL_ENTRY,0);
+//        initialEntries = getSharedPreferences(INITIAL_ENTRY,0);
 //        mPrefs.edit().putBoolean("my_first_time", true).commit();
 
         //TEST NOT COMMENT == FIRST TIME EVERYTIME
