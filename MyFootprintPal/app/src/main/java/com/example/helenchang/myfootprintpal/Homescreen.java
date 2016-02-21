@@ -18,9 +18,6 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
-
-
-
 public class Homescreen extends AppCompatActivity {
     //add one time welcome screen
 
@@ -53,107 +50,101 @@ public class Homescreen extends AppCompatActivity {
 
         mPrefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor editor = mPrefs.edit();
+        editor.putBoolean(welcomeScreenShownPref, false);
         //Default to false if not found in xml
         Boolean welcomeScreenShown = mPrefs.getBoolean(welcomeScreenShownPref, false);
 
-        if(!welcomeScreenShown) {
+        if (!welcomeScreenShown) {
             //somehow show questionnaire
             Intent intent = new Intent(this, DisplayQuestionnaire.class);
             startActivity(intent);
             //edit prefs
             editor.putBoolean(welcomeScreenShownPref, true).commit();
+//            mPrefs.getBoolean(welcomeScreenShownPref, true);
+        } else {
+            //GRAPHS
+            graph = (GraphView) findViewById(R.id.graph);
+            graph.getViewport().setXAxisBoundsManual(true);
+            graph.getViewport().setMinX(0);
+            graph.getViewport().setMaxX(24);
+            graph.setTitle("Today's Progress");
+            graph.setTitleTextSize(70);
+            graph.getGridLabelRenderer().setVerticalAxisTitle("Carbon Footprint (CO2e)");
+            graph.getGridLabelRenderer().setHorizontalAxisTitle("Time (h)");
+
+            //DATAPOINTS (UPDATE HERE)
+            todayDP = new DataPoint[]{
+                    new DataPoint(0, 1),
+                    new DataPoint(5, 5),
+                    new DataPoint(10, 3),
+                    new DataPoint(15, 2),
+                    new DataPoint(20, 6)
+            };
+            bestDP = new DataPoint[]{
+                    new DataPoint(0, 2),
+                    new DataPoint(5, 5),
+                    new DataPoint(10, 4),
+                    new DataPoint(15, 4),
+                    new DataPoint(24, 7)
+            };
+            goalDP = new DataPoint[]{
+                    new DataPoint(0, 5),
+                    new DataPoint(24, 5)
+            };
+
+            //Line 1: Today's data
+            todayLineGraph = new LineGraphSeries<DataPoint>(todayDP);
+            graph.addSeries(todayLineGraph);
+            todayLineGraph.setColor(COL_TODAY);
+
+            //Line 2: Best data
+            bestLineGraph = new LineGraphSeries<DataPoint>(bestDP);
+            graph.addSeries(bestLineGraph);
+            bestLineGraph.setColor(COL_BEST);
+
+            //Line 3: Goal data
+            goalLineGraph = new LineGraphSeries<DataPoint>(goalDP);
+            graph.addSeries(goalLineGraph);
+            bestLineGraph.setColor(COL_GOAL);
+
+
+            //CHECKBOXES
+            CheckBox todayCB = (CheckBox) findViewById(R.id.todayCB);
+            CheckBox bestCB = (CheckBox) findViewById(R.id.bestCB);
+            CheckBox goalCB = (CheckBox) findViewById(R.id.goalCB);
+            todayCB.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (((CheckBox) v).isChecked()) {
+                        todayLineGraph.resetData(todayDP);
+                    } else {
+                        todayLineGraph.resetData(EMPTY);
+                    }
+                }
+            });
+            bestCB.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (((CheckBox) v).isChecked()) {
+                        bestLineGraph.resetData(bestDP);
+                    } else {
+                        bestLineGraph.resetData(EMPTY);
+                    }
+                }
+            });
+            goalCB.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (((CheckBox) v).isChecked()) {
+                        goalLineGraph.resetData(goalDP);
+                    } else {
+                        goalLineGraph.resetData(EMPTY);
+                    }
+                }
+            });
+
         }
-
-        //GRAPHS
-        graph = (GraphView) findViewById(R.id.graph);
-        graph.getViewport().setXAxisBoundsManual(true);
-        graph.getViewport().setMinX(0);
-        graph.getViewport().setMaxX(24);
-        graph.setTitle("Today's Progress");
-        graph.setTitleTextSize(70);
-        graph.getGridLabelRenderer().setVerticalAxisTitle("Carbon Footprint (CO2e)");
-        graph.getGridLabelRenderer().setHorizontalAxisTitle("Time (h)");
-
-        //DATAPOINTS (UPDATE HERE)
-        todayDP = new DataPoint[]{
-                new DataPoint(0, 1),
-                new DataPoint(5, 5),
-                new DataPoint(10, 3),
-                new DataPoint(15, 2),
-                new DataPoint(20, 6)
-        };
-        bestDP = new DataPoint[] {
-                new DataPoint(0, 2),
-                new DataPoint(5, 5),
-                new DataPoint(10, 4),
-                new DataPoint(15, 4),
-                new DataPoint(24, 7)
-        };
-        goalDP = new DataPoint[] {
-                new DataPoint(0, 5),
-                new DataPoint(24,5)
-        };
-
-        //Line 1: Today's data
-        todayLineGraph = new LineGraphSeries<DataPoint>(todayDP);
-        graph.addSeries(todayLineGraph);
-        todayLineGraph.setColor(COL_TODAY);
-
-        //Line 2: Best data
-        bestLineGraph = new LineGraphSeries<DataPoint>(bestDP);
-        graph.addSeries(bestLineGraph);
-        bestLineGraph.setColor(COL_BEST);
-
-        //Line 3: Goal data
-        goalLineGraph = new LineGraphSeries<DataPoint>(goalDP);
-        graph.addSeries(goalLineGraph);
-        bestLineGraph.setColor(COL_GOAL);
-
-
-        //CHECKBOXES
-        CheckBox todayCB = (CheckBox) findViewById(R.id.todayCB);
-        CheckBox bestCB = (CheckBox) findViewById(R.id.bestCB);
-        CheckBox goalCB = (CheckBox) findViewById(R.id.goalCB);
-        todayCB.setOnClickListener(new OnClickListener(){
-            @Override
-            public void onClick(View v){
-                if(((CheckBox)v).isChecked()){
-                    todayLineGraph.resetData(todayDP);
-                }
-                else{
-                    todayLineGraph.resetData(EMPTY);
-                }
-            }
-        });
-        bestCB.setOnClickListener(new OnClickListener(){
-            @Override
-            public void onClick(View v){
-                if(((CheckBox)v).isChecked()){
-                    bestLineGraph.resetData(bestDP);
-                }
-                else{
-                    bestLineGraph.resetData(EMPTY);
-                }
-            }
-        });
-        goalCB.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (((CheckBox) v).isChecked()) {
-                    goalLineGraph.resetData(goalDP);
-                } else {
-                    goalLineGraph.resetData(EMPTY);
-                }
-            }
-        });
-
-        //ACTION BAR TESTING
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-//        getSupportActionBar().setIcon(R.drawable.ic_launcher);
-
-
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -175,7 +166,4 @@ public class Homescreen extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
-
 }
