@@ -15,8 +15,17 @@ import android.view.MenuItem;
 import android.support.v4.app.NavUtils;
 import android.content.Intent;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+
 
 public class DisplayQuestionnaire extends FragmentActivity {
+
+    private static ArrayList<String> questions = new ArrayList<String>();
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
@@ -97,6 +106,9 @@ public class DisplayQuestionnaire extends FragmentActivity {
             // Otherwise, select the previous step.
             mPager.setCurrentItem(mPager.getCurrentItem() - 1);
         }
+
+
+
     }
 
     /**
@@ -118,4 +130,37 @@ public class DisplayQuestionnaire extends FragmentActivity {
             return NUM_PAGES;
         }
     }
+
+    private void addItem() {
+        // Instantiate a new "row" view.
+        final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
+                R.layout.list_item_example, mContainerView, false);
+
+        // Set the text in the new row to a random country.
+        ((TextView) newView.findViewById(android.R.id.text1)).setText(
+                QUESTIONS[(str) (Math.random() * COUNTRIES.length)]);
+
+        // Set a click listener for the "X" button in the row that will remove the row.
+        newView.findViewById(R.id.delete_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Remove the row from its parent (the container view).
+                // Because mContainerView has android:animateLayoutChanges set to true,
+                // this removal is automatically animated.
+                mContainerView.removeView(newView);
+
+                // If there are no rows remaining, show the empty view.
+                if (mContainerView.getChildCount() == 0) {
+                    findViewById(android.R.id.empty).setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        // Because mContainerView has android:animateLayoutChanges set to true,
+        // adding this view is automatically animated.
+        mContainerView.addView(newView, 0);
+    }
+
+    
+
 }
