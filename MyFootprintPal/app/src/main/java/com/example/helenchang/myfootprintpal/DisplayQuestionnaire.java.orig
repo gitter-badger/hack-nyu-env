@@ -33,6 +33,11 @@ public class DisplayQuestionnaire extends Activity {
 
         // setting list adapter
         expListView.setAdapter(listAdapter);
+<<<<<<< HEAD
+
+        SharedPreferences pref = getSharedPreferences("initialEntry",0);
+        finish();
+=======
 //        finish();
 
         // Listview Group click listener
@@ -89,6 +94,7 @@ public class DisplayQuestionnaire extends Activity {
                 return false;
             }
         });
+>>>>>>> 11901fa21a09016a82cf2d3fcacb758c1bb9b0f2
     }
     private void prepareListData(){
         listDataHeaders = new ArrayList<String>();

@@ -27,10 +27,6 @@ public class Homescreen extends AppCompatActivity {
     SharedPreferences mPrefs;
     final String welcomeScreenShownPref = "welcomeScreenShown";
 
-    SharedPreferences initialEntries;
-    SharedPreferences.Editor initialEntEditor = initialEntries.edit();
-    final String INITIAL_ENTRY = "initialEntry";
-
     //Coloring
     final int COL_TODAY = Color.GREEN;
     final int COL_BEST = Color.GRAY;
@@ -56,15 +52,8 @@ public class Homescreen extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //force set to first time every time
         mPrefs = getSharedPreferences(welcomeScreenShownPref,0);
-<<<<<<< HEAD
-        initialEntries = getSharedPreferences(INITIAL_ENTRY,0);
 //        mPrefs.edit().putBoolean("my_first_time", true).commit();
-=======
-        //TEST NOT COMMENT == FIRST TIME EVERYTIME
-        mPrefs.edit().putBoolean("my_first_time", true).commit();
->>>>>>> 11901fa21a09016a82cf2d3fcacb758c1bb9b0f2
 
         //Boolean welcomeScreenShown = mPrefs.getBoolean(welcomeScreenShownPref, true);
 

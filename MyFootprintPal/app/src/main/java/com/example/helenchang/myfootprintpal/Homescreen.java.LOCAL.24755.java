@@ -58,13 +58,8 @@ public class Homescreen extends AppCompatActivity {
 
         //force set to first time every time
         mPrefs = getSharedPreferences(welcomeScreenShownPref,0);
-<<<<<<< HEAD
         initialEntries = getSharedPreferences(INITIAL_ENTRY,0);
 //        mPrefs.edit().putBoolean("my_first_time", true).commit();
-=======
-        //TEST NOT COMMENT == FIRST TIME EVERYTIME
-        mPrefs.edit().putBoolean("my_first_time", true).commit();
->>>>>>> 11901fa21a09016a82cf2d3fcacb758c1bb9b0f2
 
         //Boolean welcomeScreenShown = mPrefs.getBoolean(welcomeScreenShownPref, true);
 
