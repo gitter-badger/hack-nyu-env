@@ -13,11 +13,9 @@
         <TextView android:id="@+id/question1"
             style="?android:textAppearanceMedium"
             android:textStyle="bold"
-<<<<<<< HEAD
             android:text="this is question 1"
-=======
-            android:text="helloooooo"
->>>>>>> 00bc4b0d3b154d388c3367c7b307373ba1ebf674
+
+
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_marginBottom="16dp" />
@@ -25,11 +23,7 @@
         <TextView android:id="@+id/question2"
             style="?android:textAppearanceMedium"
             android:textStyle="bold"
-<<<<<<< HEAD
             android:text="this is question 2"
-=======
-            android:text="HIIIIII"
->>>>>>> 00bc4b0d3b154d388c3367c7b307373ba1ebf674
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_marginBottom="16dp" />

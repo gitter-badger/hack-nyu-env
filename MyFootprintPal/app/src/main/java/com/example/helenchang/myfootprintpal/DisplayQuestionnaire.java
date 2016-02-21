@@ -76,7 +76,7 @@ public class DisplayQuestionnaire extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return new ScreenSlidePageFragment();
+            return ScreenSlidePageFragment.create(position);
         }
 
         @Override
