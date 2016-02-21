@@ -139,8 +139,10 @@ public class DisplayQuestionnaire extends FragmentActivity {
                 R.layout.question_layout, mContainerView, false);
 
         // Set the text in the new row to a random country.
-        ((TextView) newView.findViewById(android.R.id.text1)).setText(
-                questions.get(0));
+
+
+        ((TextView) newView.findViewById(android.R.id.text1)).setText(questions.get(0));
+        ((TextView) newView.findViewById(android.R.id.text2)).setText(questions.get(1));
 
 
         // Because mContainerView has android:animateLayoutChanges set to true,
