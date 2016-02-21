@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.EditText;
 import android.widget.TextView;
 /**
  * Created by aaronwalker on 2/20/16.
@@ -48,7 +49,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                 convertView = infalInflater.inflate(R.layout.list_item, null);
             }
 
-            TextView txtListChild = (TextView) convertView
+            EditText txtListChild = (EditText) convertView
                     .findViewById(R.id.lblListItem);
 
             txtListChild.setText(childText);

@@ -1,9 +1,11 @@
 package com.example.helenchang.myfootprintpal;
 
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
 import android.app.Activity;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,6 +24,12 @@ public class DisplayQuestionnaire extends Activity {
         //DO NOT UNCOMMENT!!!!
         //getActionBar().setDisplayHomeAsUpEnabled(true);
 
+        Context context = getApplicationContext();
+        CharSequence text = "Hello toast!";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
         expListView = (ExpandableListView) findViewById(R.id.expandableListView);
 
         // preparing list data
