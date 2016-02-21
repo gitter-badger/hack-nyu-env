@@ -31,7 +31,7 @@ public class DisplayQuestionnaire extends FragmentActivity {
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
-    private static final int NUM_PAGES = 5;
+    private static final int NUM_PAGES = 8;
 
     /**
      * The pager widget, which handles animation and allows swiping horizontally to access previous
@@ -135,6 +135,7 @@ public class DisplayQuestionnaire extends FragmentActivity {
 
     private void addItem() {
         // Instantiate a new "row" view.
+        populateQuestions();
         final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
                 R.layout.question_layout, mContainerView, false);
 
