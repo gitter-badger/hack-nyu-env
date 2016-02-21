@@ -5,4 +5,28 @@
     <string name="title_activity_water">Water</string>
     <string name="title_activity_food">Food/Diet</string>
     <string name="title_activity_waste">Waste</string>
+
+    <string-array name="updates">
+        <item>Housing</item>
+        <item>Travel</item>
+        <item>Food</item>
+
+    </string-array>
+    <string-array name="h1_items">
+        <item>Water Use</item>
+        <item>Electricity</item>
+        <item>Waste</item>
+    </string-array>
+    <string-array name="h2_items">
+        <item>Car</item>
+        <item>Public Transportation</item>
+        <item>Human Powered</item>
+    </string-array>
+    <string-array name="h3_items">
+        <item>Heavy Meat</item>
+        <item>Pescatarian</item>
+        <item>Vegitarian</item>
+        <item>Vegan</item>
+    </string-array>
+    <string name="title_activity_temp">Temp</string>
 </resources>
