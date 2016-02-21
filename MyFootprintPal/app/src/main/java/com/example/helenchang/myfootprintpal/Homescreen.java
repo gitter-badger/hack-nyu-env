@@ -5,8 +5,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -15,11 +14,10 @@ import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.view.View.OnClickListener;
 
-
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
-//import com.jjoe64.graphview.
+
 
 
 
@@ -54,16 +52,16 @@ public class Homescreen extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         mPrefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-
+        SharedPreferences.Editor editor = mPrefs.edit();
         //Default to false if not found in xml
         Boolean welcomeScreenShown = mPrefs.getBoolean(welcomeScreenShownPref, false);
 
         if(!welcomeScreenShown) {
-            //somehow show questionaire
+            //somehow show questionnaire
             Intent intent = new Intent(this, DisplayQuestionnaire.class);
+            startActivity(intent);
             //edit prefs
-            mPrefs.edit().putBoolean(welcomeScreenShownPref, true).commit();
-
+            editor.putBoolean(welcomeScreenShownPref, true).commit();
         }
         //GRAPHS
         graph = (GraphView) findViewById(R.id.graph);
