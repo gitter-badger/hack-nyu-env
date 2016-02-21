@@ -1,6 +1,6 @@
 package com.example.helenchang.myfootprintpal;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,8 +28,8 @@ public class ScreenSlidePageFragment extends Fragment {
     /**
      * Factory method for this fragment class. Constructs a new fragment for the given page number.
      */
-    public static ScreenSlidePageFragment create(int pageNumber) {
-        ScreenSlidePageFragment fragment = new ScreenSlidePageFragment();
+    public static Fragment create(int pageNumber) {
+        Fragment fragment = new ScreenSlidePageFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, pageNumber);
         fragment.setArguments(args);
