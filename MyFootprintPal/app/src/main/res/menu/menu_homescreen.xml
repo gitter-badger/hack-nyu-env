@@ -2,39 +2,100 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.helenchang.myfootprintpal.Homescreen">
+    <View
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+    </View>
 
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="Profile"
         android:icon="@drawable/profile_icon"
-        app:showAsAction="always">
+        app:showAsAction="always"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        >
+
     </item>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+    </View>
 
     <item
         android:id="@+id/action_settings2"
         android:orderInCategory="100"
         android:title="Settings"
         android:icon="@drawable/setting_icon"
-        app:showAsAction="always">
+        app:showAsAction="always"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
 
     </item>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+    </View>
 
     <item
         android:id="@+id/action_settings3"
         android:orderInCategory="100"
         android:title="History"
         android:icon="@drawable/history_icon"
-        app:showAsAction="always">
+        app:showAsAction="always"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
     </item>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+    </View>
+
 
     <item
         android:id="@+id/action_settings4"
         android:orderInCategory="100"
         android:title="Tips"
         android:icon="@drawable/tips_icon"
-        app:showAsAction="always">
+        app:showAsAction="always"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
     </item>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+    </View>
 
 
 </menu>
