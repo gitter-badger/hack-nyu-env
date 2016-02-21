@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.widget.ExpandableListView;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,8 +19,8 @@ public class DisplayQuestionnaire extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_questionnaire);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        Intent intent = getIntent();
+        //DO NOT UNCOMMENT!!!!
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
 
         expListView = (ExpandableListView) findViewById(R.id.expandableListView);
 
@@ -32,6 +31,7 @@ public class DisplayQuestionnaire extends Activity {
 
         // setting list adapter
         expListView.setAdapter(listAdapter);
+        finish();
     }
     private void prepareListData(){
         listDataHeaders = new ArrayList<String>();
