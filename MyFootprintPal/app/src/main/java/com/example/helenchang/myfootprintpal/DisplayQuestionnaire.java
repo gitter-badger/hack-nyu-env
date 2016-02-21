@@ -136,7 +136,7 @@ public class DisplayQuestionnaire extends FragmentActivity {
     private void addItem() {
         // Instantiate a new "row" view.
         final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
-                R.layout.list_item_example, mContainerView, false);
+                R.layout.question_layout, mContainerView, false);
 
         // Set the text in the new row to a random country.
         ((TextView) newView.findViewById(android.R.id.text1)).setText(
