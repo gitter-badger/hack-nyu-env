@@ -25,6 +25,8 @@ import java.util.ArrayList;
 
 public class DisplayQuestionnaire extends FragmentActivity {
 
+    private ViewGroup mContainerView;
+    
     private static ArrayList<String> questions = new ArrayList<String>();
     /**
      * The number of pages (wizard steps) to show in this demo.
@@ -140,21 +142,6 @@ public class DisplayQuestionnaire extends FragmentActivity {
         ((TextView) newView.findViewById(android.R.id.text1)).setText(
                 questions.get(0));
 
-        // Set a click listener for the "X" button in the row that will remove the row.
-        newView.findViewById(R.id.delete_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Remove the row from its parent (the container view).
-                // Because mContainerView has android:animateLayoutChanges set to true,
-                // this removal is automatically animated.
-                mContainerView.removeView(newView);
-
-                // If there are no rows remaining, show the empty view.
-                if (mContainerView.getChildCount() == 0) {
-                    findViewById(android.R.id.empty).setVisibility(View.VISIBLE);
-                }
-            }
-        });
 
         // Because mContainerView has android:animateLayoutChanges set to true,
         // adding this view is automatically animated.
