@@ -161,6 +161,8 @@ public class DisplayQuestionnaire extends FragmentActivity {
         mContainerView.addView(newView, 0);
     }
 
-    
+    private void populateQuestions(){
+
+    }
 
 }
