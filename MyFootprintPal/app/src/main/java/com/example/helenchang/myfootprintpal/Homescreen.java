@@ -48,20 +48,22 @@ public class Homescreen extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mPrefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        SharedPreferences.Editor editor = mPrefs.edit();
-        editor.putBoolean(welcomeScreenShownPref, false);
-        //Default to false if not found in xml
-        Boolean welcomeScreenShown = mPrefs.getBoolean(welcomeScreenShownPref, false);
+        mPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-        if (!welcomeScreenShown) {
+        Boolean welcomeScreenShown = mPrefs.getBoolean(welcomeScreenShownPref, true);
+
+        if (welcomeScreenShown) {
             //somehow show questionnaire
-            Intent intent = new Intent(this, DisplayQuestionnaire.class);
-            startActivity(intent);
+            Intent intent = new Intent(Homescreen.this, DisplayQuestionnaire.class);
+            Homescreen.this.startActivity(intent);
             //edit prefs
-            editor.putBoolean(welcomeScreenShownPref, true).commit();
+            SharedPreferences.Editor editor = mPrefs.edit();
+            editor.putBoolean(welcomeScreenShownPref, false);
+            editor.commit();
+            finish();
 //            mPrefs.getBoolean(welcomeScreenShownPref, true);
-        } else {
+        }
+//        else {
             //GRAPHS
             graph = (GraphView) findViewById(R.id.graph);
             graph.getViewport().setXAxisBoundsManual(true);
@@ -148,7 +150,7 @@ public class Homescreen extends AppCompatActivity {
 
 
         }
-    }
+//    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
