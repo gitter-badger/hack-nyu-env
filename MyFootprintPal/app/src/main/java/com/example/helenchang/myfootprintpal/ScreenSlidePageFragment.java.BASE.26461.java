@@ -17,10 +17,7 @@ public class ScreenSlidePageFragment extends Fragment {
                              Bundle savedInstanceState){
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.fragment_screen_slide_page, container, false);
-<<<<<<< HEAD
-=======
-
->>>>>>> 00bc4b0d3b154d388c3367c7b307373ba1ebf674
+        ((TextView)rootView.findViewById(R.id.question1)).setText("hello");
 
         return rootView;
     }
