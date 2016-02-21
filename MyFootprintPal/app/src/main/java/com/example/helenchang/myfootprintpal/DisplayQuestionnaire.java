@@ -133,23 +133,6 @@ public class DisplayQuestionnaire extends FragmentActivity {
         }
     }
 
-    private void addItem() {
-        // Instantiate a new "row" view.
-        populateQuestions();
-        final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
-                R.layout.question_layout, mContainerView, false);
-
-        // Set the text in the new row to a random country.
-
-
-        ((TextView) newView.findViewById(android.R.id.text1)).setText(questions.get(0));
-        ((TextView) newView.findViewById(android.R.id.text2)).setText(questions.get(1));
-
-
-        // Because mContainerView has android:animateLayoutChanges set to true,
-        // adding this view is automatically animated.
-        mContainerView.addView(newView, 0);
-    }
 
     private void populateQuestions(){
         questions.add("How many people live in your house");
