@@ -76,7 +76,7 @@ public class MyAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
+    public View getChildView(final int groupPosition, final int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         String title = (String)this.getChild(groupPosition, childPosition);
         if(convertView==null) {
             LayoutInflater layoutInflater = (LayoutInflater)this.ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -86,8 +86,56 @@ public class MyAdapter extends BaseExpandableListAdapter {
         button.setText(title);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent("com.example.aaronwalker.myfootprintpal.Travel");
-                v.getContext().startActivity(intent);
+                switch((groupPosition)) {
+                    case 0:
+                        if (childPosition == 0) {
+                            Intent intent = new Intent("com.example.aaronwalker.myfootprintpal.Water");
+                            v.getContext().startActivity(intent);
+                        }
+                        else if (childPosition == 1) {
+                            Intent intent = new Intent("com.example.aaronwalker.myfootprintpal.Electricity");
+                            v.getContext().startActivity(intent);
+                        }
+                        else {
+                            Intent intent = new Intent("com.example.aaronwalker.myfootprintpal.Waste");
+                            v.getContext().startActivity(intent);
+                        }
+                        break;
+                    case 1:
+                        if (childPosition == 0) {
+                            Intent intent = new Intent("com.example.aaronwalker.myfootprintpal.Car");
+                            v.getContext().startActivity(intent);
+                        }
+                        else if (childPosition == 1) {
+                            Intent intent = new Intent("com.example.aaronwalker.myfootprintpal.Public");
+                            v.getContext().startActivity(intent);
+                        }
+                        else {
+                            Intent intent = new Intent("com.example.aaronwalker.myfootprintpal.Human");
+                            v.getContext().startActivity(intent);
+                        }
+                        break;
+                    case 2:
+                        if (childPosition == 0) {
+                            Intent intent = new Intent("com.example.aaronwalker.myfootprintpal.Heavy");
+                            v.getContext().startActivity(intent);
+                        }
+                        else if (childPosition == 1) {
+                            Intent intent = new Intent("com.example.aaronwalker.myfootprintpal.Pescatarian");
+                            v.getContext().startActivity(intent);
+                        }
+                        else if (childPosition == 2) {
+                            Intent intent = new Intent("com.example.aaronwalker.myfootprintpal.Vegitarian");
+                            v.getContext().startActivity(intent);
+                        }
+                        else {
+                            Intent intent = new Intent("com.example.aaronwalker.myfootprintpal.Vegan");
+                            v.getContext().startActivity(intent);
+                        }
+                        break;
+                    default:
+                        break;
+                }
             }
         });
         return convertView;

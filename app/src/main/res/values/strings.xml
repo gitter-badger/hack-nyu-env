@@ -29,4 +29,12 @@
         <item>Vegan</item>
     </string-array>
     <string name="title_activity_temp">Temp</string>
+    <string name="title_activity_electricity">Electricity</string>
+    <string name="title_activity_car">Travel By Car</string>
+    <string name="title_activity_public">Public Transportation</string>
+    <string name="title_activity_human">Human Powered Travel</string>
+    <string name="title_activity_heavy">Heavy Meat</string>
+    <string name="title_activity_pescatarian">Pescatarian</string>
+    <string name="title_activity_vegitarian">Vegitarian</string>
+    <string name="title_activity_vegan">Vegan</string>
 </resources>
