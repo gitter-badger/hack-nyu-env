@@ -19,6 +19,7 @@ import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
 public class Homescreen extends AppCompatActivity {
+
     //add one time welcome screen
 
     SharedPreferences mPrefs;
@@ -48,19 +49,18 @@ public class Homescreen extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        mPrefs = getSharedPreferences(welcomeScreenShownPref,0);
+        mPrefs.edit().putBoolean("my_first_time", true).commit();
 
-        Boolean welcomeScreenShown = mPrefs.getBoolean(welcomeScreenShownPref, true);
+        //Boolean welcomeScreenShown = mPrefs.getBoolean(welcomeScreenShownPref, true);
 
-        if (welcomeScreenShown) {
+        if (mPrefs.getBoolean("my_first_time", true)) {
             //somehow show questionnaire
             Intent intent = new Intent(Homescreen.this, DisplayQuestionnaire.class);
             Homescreen.this.startActivity(intent);
             //edit prefs
-            SharedPreferences.Editor editor = mPrefs.edit();
-            editor.putBoolean(welcomeScreenShownPref, false);
-            editor.commit();
-            finish();
+            mPrefs.edit().putBoolean("my_first_time", false).commit();
+//            finish();
 //            mPrefs.getBoolean(welcomeScreenShownPref, true);
         }
 //        else {
