@@ -1,6 +1,7 @@
 package com.example.helenchang.myfootprintpal;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Activity;
 import android.widget.ExpandableListView;
@@ -39,6 +40,8 @@ public class DisplayQuestionnaire extends Activity {
 
         // setting list adapter
         expListView.setAdapter(listAdapter);
+
+        SharedPreferences pref = getSharedPreferences("initialEntry",0);
         finish();
     }
     private void prepareListData(){
