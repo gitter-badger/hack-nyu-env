@@ -136,17 +136,21 @@ public class Homescreen extends AppCompatActivity {
                 }
             }
         });
-        goalCB.setOnClickListener(new OnClickListener(){
+        goalCB.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View v){
-                if(((CheckBox)v).isChecked()){
+            public void onClick(View v) {
+                if (((CheckBox) v).isChecked()) {
                     goalLineGraph.resetData(goalDP);
-                }
-                else{
+                } else {
                     goalLineGraph.resetData(EMPTY);
                 }
             }
         });
+
+        //ACTION BAR TESTING
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        getSupportActionBar().setIcon(R.drawable.ic_launcher);
+
 
     }
 
