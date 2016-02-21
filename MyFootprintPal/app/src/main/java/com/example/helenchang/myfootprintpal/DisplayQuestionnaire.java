@@ -134,26 +134,14 @@ public class DisplayQuestionnaire extends FragmentActivity {
     private void addItem() {
         // Instantiate a new "row" view.
         final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
-                R.layout.list_item_example, mContainerView, false);
+                R.layout.question_layout, mContainerView, false);
 
         // Set the text in the new row to a random country.
         ((TextView) newView.findViewById(android.R.id.text1)).setText(
                 questions.get(0));
 
         // Set a click listener for the "X" button in the row that will remove the row.
-        newView.findViewById(R.id.delete_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Remove the row from its parent (the container view).
-                // Because mContainerView has android:animateLayoutChanges set to true,
-                // this removal is automatically animated.
-                mContainerView.removeView(newView);
 
-                // If there are no rows remaining, show the empty view.
-                if (mContainerView.getChildCount() == 0) {
-                    findViewById(android.R.id.empty).setVisibility(View.VISIBLE);
-                }
-            }
         });
 
         // Because mContainerView has android:animateLayoutChanges set to true,
