@@ -2,13 +2,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.helenchang.myfootprintpal.Homescreen">
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="Profile"
-        android:icon="@drawable/profile_icon"
-        app:showAsAction="always">
-    </item>
 
     <item
         android:id="@+id/action_settings"

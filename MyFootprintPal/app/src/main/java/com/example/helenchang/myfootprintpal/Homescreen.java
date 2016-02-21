@@ -143,6 +143,10 @@ public class Homescreen extends AppCompatActivity {
                 }
             });
 
+            //gets rid of actionbar title
+            setTitle("");
+
+
         }
     }
     @Override
