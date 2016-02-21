@@ -53,7 +53,8 @@ public class Homescreen extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         mPrefs = getSharedPreferences(welcomeScreenShownPref,0);
-//        mPrefs.edit().putBoolean("my_first_time", true).commit();
+        //TEST NOT COMMENT == FIRST TIME EVERYTIME
+        mPrefs.edit().putBoolean("my_first_time", true).commit();
 
         //Boolean welcomeScreenShown = mPrefs.getBoolean(welcomeScreenShownPref, true);
 
