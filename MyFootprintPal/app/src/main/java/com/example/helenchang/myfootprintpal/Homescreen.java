@@ -19,7 +19,7 @@ import android.view.View.OnClickListener;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
-//import com.jjoe64.graphview.
+
 
 
 
@@ -65,6 +65,7 @@ public class Homescreen extends AppCompatActivity {
             mPrefs.edit().putBoolean(welcomeScreenShownPref, true).commit();
 
         }
+
         //GRAPHS
         graph = (GraphView) findViewById(R.id.graph);
         graph.getViewport().setXAxisBoundsManual(true);
@@ -75,7 +76,7 @@ public class Homescreen extends AppCompatActivity {
         graph.getGridLabelRenderer().setVerticalAxisTitle("Carbon Footprint (CO2e)");
         graph.getGridLabelRenderer().setHorizontalAxisTitle("Time (h)");
 
-        //DATAPOINTS
+        //DATAPOINTS (UPDATE HERE)
         todayDP = new DataPoint[]{
                 new DataPoint(0, 1),
                 new DataPoint(5, 5),

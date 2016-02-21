@@ -5,5 +5,9 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
+
+        <!--<item name="android:colorAccent">@color/"#009300"</item>-->
+        <!--<item name="android:colorPrimaryDark">@color/custom_theme_color</item>-->
+        <!--<item name="android:colorPrimary">@color/custom_theme_color</item>-->
     </style>
 </resources>
