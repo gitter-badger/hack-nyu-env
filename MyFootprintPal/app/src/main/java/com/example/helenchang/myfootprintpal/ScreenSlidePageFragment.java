@@ -23,7 +23,7 @@ public class ScreenSlidePageFragment extends Fragment {
     /**
      * The fragment's page number, which is set to the argument value for {@link #ARG_PAGE}.
      */
-    private int mPageNumber;
+//    private int mPageNumber;
 
     /**
      * Factory method for this fragment class. Constructs a new fragment for the given page number.
@@ -42,7 +42,7 @@ public class ScreenSlidePageFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPageNumber = getArguments().getInt(ARG_PAGE);
+        //mPageNumber = 10;//getArguments().getInt(ARG_PAGE);
     }
 
     @Override
@@ -53,8 +53,8 @@ public class ScreenSlidePageFragment extends Fragment {
                 .inflate(R.layout.fragment_screen_slide_page, container, false);
 
         // Set the title view to show the page number.
-        ((TextView) rootView.findViewById(android.R.id.text1)).setText(
-                "Hi");
+//        ((TextView) rootView.findViewById(android.R.id.text1)).setText(
+//                "Hi");
 
         return rootView;
     }
@@ -62,7 +62,7 @@ public class ScreenSlidePageFragment extends Fragment {
     /**
      * Returns the page number represented by this fragment object.
      */
-    public int getPageNumber() {
-        return mPageNumber;
-    }
+//    public int getPageNumber() {
+//        return mPageNumber;
+//    }
 }
