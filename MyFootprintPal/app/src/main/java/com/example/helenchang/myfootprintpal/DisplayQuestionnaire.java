@@ -133,23 +133,4 @@ public class DisplayQuestionnaire extends FragmentActivity {
         }
     }
 
-
-    private void populateQuestions(){
-        questions.add("How many people live in your house");
-        questions.add("What kind of energy system does your house use?");
-        questions.add("Do you use energy efficient light bulbs?");
-        questions.add("What kind of stove system does your house use");
-        questions.add("How often do you cook?");
-        questions.add("How many times do you shower a day");
-        questions.add("What is your primary form of transportation");
-        questions.add("If you drive a car, what kind of car do you drive?");
-        questions.add("If you take public transportation, which one do you take?");
-        questions.add("How far do you commute?");
-        questions.add("How many times a year do you fly out of the US");
-        questions.add("How many times a year do you fly within the US?");
-        questions.add("What is your diet like?");
-        questions.add("How often do you drink bottled water (yearly)?");
-
-    }
-
 }
