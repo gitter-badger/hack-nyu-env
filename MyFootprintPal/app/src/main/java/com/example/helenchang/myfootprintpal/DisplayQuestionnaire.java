@@ -31,7 +31,7 @@ public class DisplayQuestionnaire extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homescreen);
-        viewPager = findViewById(R.id.view_pager);
+        viewPager = (ViewPager)findViewById(R.id.view_pager);
         adapter = new CustomSwipeAdapter(this);
         viewPager.setAdapter(adapter);
     }
